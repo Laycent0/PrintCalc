@@ -1,0 +1,53 @@
+<UserControl x:Class="PrintCalc.Views.CalcView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0">
+
+        <!-- Параметры печати -->
+        <materialDesign:Card Background="#424242" Padding="24" Margin="12" Width="290">
+            <StackPanel>
+                <TextBlock Text="Параметры печати" FontSize="22" Margin="0,0,0,12" />
+                <TextBox  x:Name="TxtClient"      materialDesign:HintAssist.Hint="Клиент" />
+                <ComboBox x:Name="CmbPlastic"     materialDesign:HintAssist.Hint="Пластик" DisplayMemberPath="Name" />
+                <TextBox  x:Name="TxtWeight"      materialDesign:HintAssist.Hint="Вес модели (г)" />
+                <TextBox  x:Name="TxtHours"       materialDesign:HintAssist.Hint="Время печати (ч)" />
+                <TextBox  x:Name="TxtPrinterRate" materialDesign:HintAssist.Hint="Работа принтера (руб/ч)" Text="30" />
+            </StackPanel>
+        </materialDesign:Card>
+
+        <!-- Дополнительно -->
+        <materialDesign:Card Background="#424242" Padding="24" Margin="12" Width="290">
+            <StackPanel>
+                <TextBlock Text="Дополнительно" FontSize="22" Margin="0,0,0,12" />
+                <TextBox x:Name="TxtDefect"     materialDesign:HintAssist.Hint="Брак (%)" Text="5" />
+                <TextBox x:Name="TxtPost"       materialDesign:HintAssist.Hint="Постобработка (руб)" Text="0" />
+                <TextBox x:Name="TxtPack"       materialDesign:HintAssist.Hint="Упаковка (руб)" Text="0" />
+                <TextBox x:Name="TxtMarkup"     materialDesign:HintAssist.Hint="Наценка (%)" Text="50" />
+                <TextBox x:Name="TxtCommission" materialDesign:HintAssist.Hint="Комиссия площадки (%)" Text="10" />
+                <Button  x:Name="BtnCalc" Content="РАССЧИТАТЬ СТОИМОСТЬ" Height="45" Margin="0,24,0,0" />
+            </StackPanel>
+        </materialDesign:Card>
+
+        <!-- Результат -->
+        <materialDesign:Card Background="#424242" Padding="24" Margin="12" Width="290" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="Результат" FontSize="22" Margin="0,0,0,12" />
+
+                <TextBlock Text="Себестоимость" Opacity="0.7" Margin="0,8,0,0" />
+                <TextBlock x:Name="TxtCost" Text="0 ₽" FontSize="24" FontWeight="Bold" />
+
+                <TextBlock Text="Цена для клиента" Opacity="0.7" Margin="0,16,0,0" />
+                <TextBlock x:Name="TxtPrice" Text="0 ₽" FontSize="24" FontWeight="Bold" />
+
+                <TextBlock Text="Комиссия площадки" Opacity="0.7" Margin="0,16,0,0" />
+                <TextBlock x:Name="TxtFee" Text="0 ₽" FontSize="24" FontWeight="Bold" />
+
+                <TextBlock Text="Чистая прибыль" Opacity="0.7" Margin="0,16,0,0" />
+                <TextBlock x:Name="TxtProfit" Text="0 ₽" FontSize="28" FontWeight="Bold" Foreground="#FF5722" />
+
+                <Button x:Name="BtnSave" Content="СОХРАНИТЬ В ЗАКАЗЫ" Height="45" Margin="0,24,0,0" />
+            </StackPanel>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>
