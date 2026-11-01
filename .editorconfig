@@ -1,0 +1,36 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{xaml,csproj,slnx}]
+indent_size = 2
+
+[*.cs]
+# using: System первыми
+dotnet_sort_system_directives_first = true
+
+# namespace одной строкой: namespace X;
+csharp_style_namespace_declarations = file_scoped:warning
+
+# is null вместо == null
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+csharp_style_prefer_pattern_matching = true:suggestion
+
+# var, когда тип очевиден
+csharp_style_var_when_type_is_apparent = true:suggestion
+
+# именование: приватные поля с _
+dotnet_naming_rule.private_fields.symbols = private_fields
+dotnet_naming_rule.private_fields.style = underscore_camel
+dotnet_naming_rule.private_fields.severity = warning
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.underscore_camel.required_prefix = _
+dotnet_naming_style.underscore_camel.capitalization = camel_case
